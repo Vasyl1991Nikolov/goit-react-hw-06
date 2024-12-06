@@ -2,8 +2,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // Використовуємо локальне сховище
-import contactsReducer from '../contactsSlice/contactsSlice';
-import filtersReducer from '../filtersSlice/filtersSlice';
+import contactsReducer from './contactsSlice';
+import filtersReducer from './filtersSlice';
 
 // Налаштування конфігурації для Persist
 const persistConfig = {
