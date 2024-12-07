@@ -1,18 +1,17 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // Використовуємо локальне сховище
+import storage from 'redux-persist/lib/storage';
 import contactsReducer from './contactsSlice';
 import filtersReducer from './filtersSlice';
 
-// Налаштування конфігурації для Persist
+
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['contacts'], // Зберігаємо лише contacts у локальному сховищі
+  whitelist: ['items'], 
 };
 
-// Persisted редюсер для контактів
 const persistedContactsReducer = persistReducer(persistConfig, contactsReducer);
 
 const store = configureStore({
@@ -22,7 +21,6 @@ const store = configureStore({
   },
 });
 
-// Створюємо persistor для PersistGate
 const persistor = persistStore(store);
 
 export { store, persistor };
